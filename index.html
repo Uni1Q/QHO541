@@ -5,41 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix Movies</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="navigation-menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Movies</a></li>
                 <li><a href="#">TV Shows</a></li>
                 <li><a href="#">My List</a></li>
             </ul>
-            <form class="search-form">
+            
+        </nav>
+        <form class="search-form">
                 <input type="text" placeholder="Search...">
                 <button type="submit">Go</button>
-            </form>
-        </nav>
+        </form>
     </header>
     <main>
-        <section>
-            <h1>Movies</h1>
-            <div class="movie-grid">
-                <div class="movie-card">
-                    <h2>Movie Title</h2>
-                    <p>Movie Description</p>
-                </div>
-                <div class="movie-card">
-                    <h2>Movie Title</h2>
-                    <p>Movie Description</p>
-                </div>
-                <div class="movie-card">
-                    <h2>Movie Title</h2>
-                    <p>Movie Description</p>
-                </div>
-                <!-- Add more movie cards here -->
-            </div>
-        </section>
+      <div class="container">
+    
+        <div class="section">
+          <h2>Movies</h2>
+          <div class="card-list" id="movieList">
+            <!-- Movie cards will be dynamically inserted here -->
+          </div>
+        </div>
+    
+        <div class="section">
+          <h2>TV Shows</h2>
+          <div class="card-list" id="tvShowList">
+            <!-- TV show cards will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
     </main>
 </body>
 </html>
