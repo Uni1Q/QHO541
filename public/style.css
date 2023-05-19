@@ -51,10 +51,6 @@ header {
 }
 
 /* Movie cards */
-section {
-  padding: 20px;
-}
-
 .card-list {
   background-color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -67,13 +63,11 @@ section {
   margin: 10px;
 }
 
-.card-list p {
+.fields {
   font-size: 14px;
   margin: 10px;
   color: #666;
 }
-
-
 
 .more-like-this-btn {
   display: flex;

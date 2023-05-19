@@ -1,16 +1,31 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const path =require("path")
 const netflixContent = require('./models/netflixModels.js')
 const app = express()
+const bodyParser = require("body-parser")
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, "public")))
+
+// default route
+//app.get('/', function(req, res) {
+   // res.send('Netflix Content API')
+//})
 
 // routes
 
-// default route
-app.get('/', function(req, res) {
-    res.send('Netflix Content API')
+app.set("view engine", "ejs")
+
+app.get("/", async(req, res) => {
+
+    // res.send()
+    let movies = await netflixContent.aggregate({type: "Movie"}).sample(5)
+    let tvShows = await netflixContent.aggregate({type: "TV Show"}).sample(5)
+    res.render("index", {movies, tvShows})
 })
 
 // displays entire database

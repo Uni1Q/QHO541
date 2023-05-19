@@ -26,12 +26,10 @@ async function getRandomItemByType(type) {
 
 // Function to display the item details in the console
 function displayItemDetails(item) {
-  console.log('Item Details:');
   console.log('Title:', item.title);
   console.log('Type:', item.type);
   console.log('Genre:', item.listed_in);
   console.log('Release Year:', item.release_year);
-  // Add more properties as needed
 }
 
 // Function to fetch a random item from the API and display its details
@@ -71,11 +69,11 @@ function createItemElement(item, containerId) {
   }
   
   // Function to display the item details on the website
-  function displayItemOnWebsite(item, containerId) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = ''; // Clear previous content
-    createItemElement(item, containerId);
-  }
+  ///function displayItemOnWebsite(item, containerId) {
+  //  const container = document.getElementById(containerId);
+  //  container.innerHTML = ''; // Clear previous content
+  //  createItemElement(item, containerId);
+ // }
   
   // Fetch a random TV show from the API and display it on the website
   function fetchRandomTVShow() {
@@ -119,11 +117,9 @@ const moviePromise = getRandomItemByType('Movie');
 Promise.all([tvShowPromise, moviePromise])
   .then(([tvShow, movie]) => {
     if (tvShow) {
-      // If a random TV show is found in the database, display its details
       console.log('TV Show:');
       displayItemDetails(tvShow);
     } else {
-      // If no random TV show is found in the database, fetch a random TV show from the API
       console.log('Fetching a random TV show:');
       fetchRandomItem();
     }
@@ -141,3 +137,17 @@ Promise.all([tvShowPromise, moviePromise])
   .catch(error => {
     console.error('Error:', error);
   });
+
+// Display data to the HTML page
+
+function displayToFrontend() {
+    axios.get('mongodb://127.0.0.1:27017/Netflix')
+        .then(response => {
+            const tvShows = response.data;
+            let divCards = document.querySelector("div.card-list")
+            divCards.innerHTML = tvShows.title
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
