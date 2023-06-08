@@ -11,13 +11,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname + '/public')));
 
-// default route
-//app.get('/', function(req, res) {
-// res.send('Netflix Content API')
-//})
-
-// routes
-
 app.set("view engine", "ejs")
 
 app.get("/", async (req, res) => {
@@ -61,7 +54,6 @@ app.get("/", async (req, res) => {
 
 app.get("/edit/:id", async (req, res) => {
 
-
     let result = await netflixContent.findById(req.params.id)
 
     if (result)
@@ -71,20 +63,10 @@ app.get("/edit/:id", async (req, res) => {
 })
 
 app.get("/add", async (req, res) => {
-
-
    
         res.render("add",{searchText:""})
    
 })
-
-
-
-
-
-
-
-
 
 
 
@@ -98,6 +80,7 @@ app.get('/content', async (req, res) => {
     }
 })
 
+
 // displays specific item based on ID
 app.get('/content/:id', async (req, res) => {
     try {
@@ -108,6 +91,7 @@ app.get('/content/:id', async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
 
 // add data
 
@@ -121,6 +105,7 @@ app.post('/addMovie', async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
 
 // update
 
@@ -137,6 +122,7 @@ app.put('/content/:id', async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
 
 // delete operation
 
