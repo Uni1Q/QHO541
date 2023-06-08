@@ -1,0 +1,102 @@
+
+<!doctype HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Movies</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+      <header>
+            <nav>
+                <ul class="navigation-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a class="btn btn-primary" href="/add">Add Movie</a></li>
+                </ul>
+    
+            </nav>
+            <form class="search-form">
+                <input id="search" type="text" value="<%= searchText %>" placeholder="Search by movies title">
+                <button type="button" onclick="handleSearch()" class="btn btn-primary">Go</button>
+            </form>
+        </header>
+    <main>
+     
+<div class="row justify-content-center mt-3">
+      <div class="col-md-6">
+        <h2>Add Form</h2>
+    
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="title" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input type="text" class="form-control" id="type" name="type" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="cast">Cast</label>
+          <input type="text" class="form-control" id="cast" name="cast" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" id="country" name="country" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="date_added">Date Added</label>
+          <input type="text" class="form-control" id="date_added" name="date_added" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="release_year">Release Year</label>
+          <input type="text" class="form-control" id="release_year" name="release_year" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <input type="text" class="form-control" id="rating" name="rating" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input type="text" class="form-control" id="duration" name="duration" value="">
+        </div>
+    
+        <div class="form-group">
+          <label for="listed_in">Listed In</label>
+          <input type="text" class="form-control" id="listed_in" name="listed_in" value="">
+        </div>
+    
+        <button onclick="saveAdd()" class="btn btn-primary mt-3">Save</button>
+    
+      </div>
+    </div>
+    
+    </main>
+</body>
+
+</html>
+
+
