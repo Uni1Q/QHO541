@@ -41,12 +41,10 @@ app.get("/", async (req, res) => {
    else{
     let movies = await netflixContent.aggregate([
         { $match: { type: "Movie" } },
-        { $limit: 5 }
-    ]);
+    ]).sample(6);
     let tvShows = await netflixContent.aggregate([
         { $match: { type: "TV Show" } },
-        { $limit: 5 }
-    ])
+    ]).sample(6)
 
     res.render("index", { movies, tvShows,searchText:"" })
 }
